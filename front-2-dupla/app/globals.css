@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  body {
+    background: #f4f6fb;
+    color: #333;
+  }
+  
+
+  .navbar {
+    width: 100%;
+    background: #000;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .navbar li {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .navbar li:hover {
+    color: #4ade80;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .hero h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .hero-buttons button {
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .button-green {
+    background: #22c55e;
+    color: white;
+  }
+  
+  .button-green:hover {
+    background: #16a34a;
+  }
+
+ .navbar-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-logo img {
+  border-radius: 6px;
+}
+ 
