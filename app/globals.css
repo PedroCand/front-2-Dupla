@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -10,31 +11,128 @@ body {
   color: #333;
 }
 
+/* ============================
+   NAVBAR
+============================ */
 
 .navbar {
   width: 100%;
   background: #000;
-  padding: 15px 0;
+  padding: 12px 0;
   display: flex;
   justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.navbar ul {
+.navbar-list {
+  display: flex;
+  align-items: center;
+  gap: 30px;
   list-style: none;
+}
+
+/* Logo */
+.navbar-logo img {
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Menu Desktop */
+.menu-desktop {
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 
-.navbar li {
+.menu-desktop a {
   color: white;
   font-size: 16px;
-  cursor: pointer;
+  text-decoration: none;
   transition: 0.3s;
 }
 
-.navbar li:hover {
+.menu-desktop a:hover {
   color: #4ade80;
 }
+
+/* Ícone Mobile */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* ============================
+   DRAWER MOBILE
+============================ */
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: #111;
+  padding: 20px;
+  transition: right 0.3s;
+  z-index: 999;
+}
+
+.drawer-open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drawer-close {
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Drawer links */
+.drawer-list {
+  list-style: none;
+  margin-top: 40px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.drawer-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.drawer-list a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.drawer-list a:hover {
+  color: #4ade80;
+}
+
+/* ============================
+   HERO
+============================ */
 
 .hero {
   text-align: center;
@@ -50,7 +148,6 @@ body {
   font-size: 32px;
   margin-bottom: 20px;
 }
-
 
 .hero p {
   max-width: 650px;
@@ -84,117 +181,61 @@ body {
   background: #16a34a;
 }
 
-.navbar {
-  width: 100%;
-  background: #000;
-  padding: 10px 0;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+.dropdown {
+  position: relative;
 }
 
-.navbar-content {
-  width: 90%;
-  max-width: 1200px;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.navbar-logo {
-  border-radius: 8px;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.navbar li {
+.dropdown-btn {
+  background: transparent;
+  border: none;
   color: white;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.navbar li:hover {
+.dropdown-btn:hover {
   color: #4ade80;
 }
 
-.navbar-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.navbar-logo img {
-  border-radius: 6px;
-}
-
-.menu-desktop {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.menu-icon {
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  left: 0;
   display: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu-desktop {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-    margin-left: auto;
-  }
-}
-
-.drawer {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100vh;
   background: #111;
-  padding: 20px;
-  transition: right 0.3s;
-  z-index: 999;
-}
-
-.drawer-open {
-  right: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.drawer-close {
-  font-size: 32px;
-  color: white;
-  cursor: pointer;
-}
-
-.drawer-list {
-  list-style: none;
-  margin-top: 40px;
-  padding: 0;
-  display: flex;
+  padding: 10px 0;
+  border-radius: 6px;
+  width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   flex-direction: column;
-  gap: 25px;
 }
 
-.drawer-list li {
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
   color: white;
-  font-size: 18px;
-  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
 }
+
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  display: none;
+  background: #111;
+  padding: 10px 0;
+  border-radius: 6px;
+  width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  flex-direction: column;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
