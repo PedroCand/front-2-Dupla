@@ -181,6 +181,10 @@ body {
   background: #16a34a;
 }
 
+/* ============================
+   DROPDOWNS
+============================ */
+
 .dropdown {
   position: relative;
 }
@@ -218,6 +222,18 @@ body {
   transition: 0.2s;
 }
 
+/* HOVER DESKTOP */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Mobile não usa hover */
+@media (max-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+}
+
 .dropdown-menu {
   position: absolute;
   top: 35px;
@@ -234,8 +250,3 @@ body {
 .dropdown-menu.show {
   display: flex;
 }
-
-.dropdown:hover .dropdown-menu {
-  display: flex;
-}
-
