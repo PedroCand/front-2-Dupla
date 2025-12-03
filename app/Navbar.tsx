@@ -1,84 +1,114 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [openMenu, setOpenMenu] = useState("");
+  const [menuAberto, setMenuAberto] = useState(false);
+  const [submenuAberto, setSubmenuAberto] = useState<string | null>(null);
 
-  const toggleMenu = (name: string) => {
-    setOpenMenu((prev) => (prev === name ? "" : name));
+  const toggleMenu = () => setMenuAberto((prev) => !prev);
+
+  const toggleSubmenu = (nome: string) => {
+    setSubmenuAberto((atual) => (atual === nome ? null : nome));
   };
 
   return (
-    <nav className="navbar">
-      <ul className="navbar-list">
-        
-        {/* Logo */}
-        <li className="navbar-logo">
-          <Link href="/">
-            <img src="/clinica.webp" alt="Logo" width={40} height={40} />
-          </Link>
-        </li>
+    <header className="navbar">
+      <div className="navbar-inner">
+        <div className="navbar-logo">
+          <Image
+            src="/clinica.webp"
+            alt="Clínica Vida Saudável"
+            width={40}
+            height={40}
+          />
+        </div>
 
-        {/* Home */}
-        <li>
+        <button
+          className="navbar-toggle"
+          onClick={toggleMenu}
+          aria-label="Abrir menu de navegação"
+        >
+          <Image src="/mobile.png" alt="Menu" width={32} height={32} />
+        </button>
+
+        <nav className={`navbar-menu ${menuAberto ? "is-open" : ""}`}>
           <Link href="/">Home</Link>
-        </li>
 
-        {/* Especialidades */}
-        <li className="dropdown">
-          <button className="dropdown-btn" onClick={() => toggleMenu("esp")}>
-            Especialidades
-          </button>
-          <div className={`dropdown-menu ${openMenu === "esp" ? "show" : ""}`}>
-            <Link href="/especialidades/listar">Listar</Link>
-            <Link href="/especialidades/adicionar">Adicionar</Link>
-            <Link href="/especialidades/editar">Editar</Link>
-            <Link href="/especialidades/excluir">Excluir</Link>
+          <div
+            className={`dropdown ${
+              submenuAberto === "especialidades" ? "open" : ""
+            }`}
+          >
+            <button
+              className="dropdown-toggle"
+              type="button"
+              onClick={() => toggleSubmenu("especialidades")}
+            >
+              Especialidades
+            </button>
+            <div className="dropdown-menu">
+              <Link href="/especialidades">listar</Link>
+              <Link href="/especialidades/pediatria">Pediatria</Link>
+              <Link href="/especialidades/dermatologia">Dermatologia</Link>
+            </div>
           </div>
-        </li>
 
-        {/* Médicos */}
-        <li className="dropdown">
-          <button className="dropdown-btn" onClick={() => toggleMenu("med")}>
-            Médicos
-          </button>
-          <div className={`dropdown-menu ${openMenu === "med" ? "show" : ""}`}>
-            <Link href="/medicos/listar">Listar</Link>
-            <Link href="/medicos/adicionar">Adicionar</Link>
-            <Link href="/medicos/editar">Editar</Link>
-            <Link href="/medicos/excluir">Excluir</Link>
+          <div
+            className={`dropdown ${submenuAberto === "medicos" ? "open" : ""}`}
+          >
+            <button
+              className="dropdown-toggle"
+              type="button"
+              onClick={() => toggleSubmenu("medicos")}
+            >
+              Médicos
+            </button>
+            <div className="dropdown-menu">
+              <Link href="/medicos/listar">Lista de médicos</Link>
+              <Link href="/medicos/cadastrar">Cadastrar médico</Link>
+            </div>
           </div>
-        </li>
 
-        {/* Pacientes */}
-        <li className="dropdown">
-          <button className="dropdown-btn" onClick={() => toggleMenu("pac")}>
-            Pacientes
-          </button>
-          <div className={`dropdown-menu ${openMenu === "pac" ? "show" : ""}`}>
-            <Link href="/pacientes/listar">Listar</Link>
-            <Link href="/pacientes/adicionar">Adicionar</Link>
-            <Link href="/pacientes/editar">Editar</Link>
-            <Link href="/pacientes/excluir">Excluir</Link>
+          <div
+            className={`dropdown ${
+              submenuAberto === "pacientes" ? "open" : ""
+            }`}
+          >
+            <button
+              className="dropdown-toggle"
+              type="button"
+              onClick={() => toggleSubmenu("pacientes")}
+            >
+              Pacientes
+            </button>
+            <div className="dropdown-menu">
+              <Link href="/pacientes/listar">Lista de pacientes</Link>
+              <Link href="/pacientes/cadastrar">Cadastrar paciente</Link>
+            </div>
           </div>
-        </li>
 
-        {/* Consultas */}
-        <li className="dropdown">
-          <button className="dropdown-btn" onClick={() => toggleMenu("con")}>
-            Consultas
-          </button>
-          <div className={`dropdown-menu ${openMenu === "con" ? "show" : ""}`}>
-            <Link href="/consultas/listar">Listar</Link>
-            <Link href="/consultas/adicionar">Adicionar</Link>
-            <Link href="/consultas/editar">Editar</Link>
-            <Link href="/consultas/excluir">Excluir</Link>
+          <div
+            className={`dropdown ${
+              submenuAberto === "consultas" ? "open" : ""
+            }`}
+          >
+            <button
+              className="dropdown-toggle"
+              type="button"
+              onClick={() => toggleSubmenu("consultas")}
+            >
+              Consultas
+            </button>
+            <div className="dropdown-menu">
+              <Link href="/consultas/listar">Lista de consultas</Link>
+              <Link href="/agenda">Agendar consulta</Link>
+            </div>
           </div>
-        </li>
-
-      </ul>
-    </nav>
+        </nav>
+      </div>
+    </header>
   );
 }

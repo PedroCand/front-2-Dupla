@@ -1,108 +1,140 @@
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+.consultas-conteudo {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.consultas-conteudo h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.botoes {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.botao-verde {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.botao-verde:hover {
+  opacity: 0.9;
+}
+
+.tabela-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: #333;
+  color: #fff;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-conteudo {
+  background: white;
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-conteudo h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal-input {
+  border: 2px solid #28a745;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.modal-lista {
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.modal-item {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #f2f2f2;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-item:hover {
+  background: #e2e2e2;
+}
+
+.modal-vazio {
+  text-align: center;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .consultas-conteudo {
+    margin: 16px;
+    padding: 16px;
   }
-  
-  .topo {
-    background: #000;
-    color: #fff;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 40px;
-  }
-  
-  .menu a {
-    color: #fff;
-    margin-right: 20px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .conteudo {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 30px;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
+
   .botoes {
-    margin: 20px 0;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .botao-verde {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .botao-verde:hover {
-    opacity: 0.9;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th {
-    background: #333;
-    color: #fff;
-  }
-  
-  th,
-  td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  /* MODAL */
-  
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-conteudo {
-    background: white;
-    width: 400px;
-    padding: 20px;
-    border-radius: 8px;
-    max-height: 80vh;
-    display: flex;
     flex-direction: column;
   }
-  
-  .modal-input {
-    border: 2px solid #28a745;
-    padding: 8px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-  }
-  
-  .modal-lista {
-    overflow-y: auto;
-  }
-  
-  .modal-item {
+
+  .botao-verde {
     width: 100%;
-    padding: 10px;
-    border: none;
-    background: #f2f2f2;
-    margin-bottom: 6px;
-    border-radius: 4px;
-    cursor: pointer;
+    text-align: center;
   }
-  
+
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  .modal-conteudo {
+    width: 90%;
+  }
+}

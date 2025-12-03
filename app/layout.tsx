@@ -1,17 +1,17 @@
-"use client";
-
 import "./globals.css";
 import Navbar from "./Navbar";
-import { ReactNode } from "react";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export const metadata = {
+  title: "Clínica Vida Saudável",
+  description: "Sistema de clínica médica",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>
         <Navbar />
-        <main>
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );

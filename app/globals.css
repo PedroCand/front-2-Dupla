@@ -1,294 +1,255 @@
-/* RESET */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
 body {
-  background: #f4f6fb;
-  color: #333;
+  height: 100%;
 }
+
+body {
+  background: #f4f5f9;
+  color: #222;
+}
+
+/* NAVBAR */
 
 .navbar {
-  width: 100%;
-  background-color: #000;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
+  background: #000;
+  color: #fff;
 }
 
-.navbar-list {
+.navbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 60px;
   display: flex;
   align-items: center;
-  gap: 25px;
-  list-style: none;
-}
-/* Logo */
-.navbar-logo img {
-  border-radius: 6px;
-  cursor: pointer;
+  justify-content: space-between;
 }
 
-/* Menu Desktop */
-.menu-desktop {
+.navbar-logo {
   display: flex;
-  gap: 30px;
   align-items: center;
 }
 
-.menu-desktop a {
-  color: white;
-  font-size: 16px;
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar-menu a {
+  color: #fff;
   text-decoration: none;
-  transition: 0.3s;
+  font-size: 14px;
+  padding: 4px 0;
 }
 
-.menu-desktop a:hover {
-  color: #4ade80;
+.navbar-menu a:hover {
+  text-decoration: underline;
 }
 
-/* Ícone Mobile */
-.menu-icon {
+.navbar-toggle {
   display: none;
-  cursor: pointer;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .menu-desktop {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-    margin-left: auto;
-  }
-}
-
-/* ============================
-   DRAWER MOBILE
-============================ */
-
-.drawer {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100vh;
-  background: #111;
-  padding: 20px;
-  transition: right 0.3s;
-  z-index: 999;
-}
-
-.drawer-open {
-  right: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.drawer-close {
-  font-size: 32px;
-  color: white;
-  cursor: pointer;
-}
-
-/* Drawer links */
-.drawer-list {
-  list-style: none;
-  margin-top: 40px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.drawer-list li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 10px;
-}
-
-.drawer-list a {
-  color: white;
-  font-size: 18px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.drawer-list a:hover {
-  color: #4ade80;
-}
-
-/* ============================
-   HERO
-============================ */
-
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-.hero h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  max-width: 650px;
-  margin: 0 auto 40px;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.hero-buttons button {
-  padding: 12px 24px;
-  border-radius: 6px;
+  background: none;
   border: none;
+  padding: 0;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
-.button-green {
-  background: #22c55e;
-  color: white;
-}
-
-.button-green:hover {
-  background: #16a34a;
-}
-
-/* ============================
-   DROPDOWNS
-============================ */
+/* DROPDOWN */
 
 .dropdown {
   position: relative;
 }
 
-.dropdown-btn {
-  background: transparent;
+.dropdown-toggle {
+  background: none;
   border: none;
-  color: white;
-  font-size: 16px;
+  color: #fff;
+  font-size: 14px;
   cursor: pointer;
-}
-
-.dropdown-btn:hover {
-  color: #4ade80;
+  padding: 4px 0;
 }
 
 .dropdown-menu {
   position: absolute;
-  top: 35px;
+  top: 40px;
   left: 0;
-  display: none;
   background: #111;
-  padding: 10px 0;
   border-radius: 6px;
-  width: 160px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  padding: 8px 0;
+  min-width: 180px;
+  display: none;
   flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  z-index: 20;
 }
 
 .dropdown-menu a {
-  display: block;
-  padding: 10px 15px;
-  color: white;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-/* HOVER DESKTOP */
-.dropdown:hover .dropdown-menu {
-  display: flex;
-}
-
-/* Mobile não usa hover */
-@media (max-width: 768px) {
-  .dropdown:hover .dropdown-menu {
-    display: none;
-  }
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 35px;
-  left: 0;
-  display: none;
-  background: #111;
-  padding: 10px 0;
-  border-radius: 6px;
-  width: 160px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  flex-direction: column;
-}
-
-.dropdown-menu.show {
-  display: flex;
-}
-
-/* 🔥 Corrige alinhamento dos dropdowns */
-.navbar .dropdown {
-  position: relative;
-}
-
-/* 🔥 Estilo do botão do dropdown */
-.dropdown-btn {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* 🔥 Estilo do menu aberto */
-.dropdown-menu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 45px; /* ajusta a distância do menu */
-  left: 0;
-  background: #000;
-  padding: 10px;
-  border-radius: 4px;
-  z-index: 999;
-  min-width: 150px;
-}
-
-.dropdown-menu.show {
-  display: flex;
-}
-
-.dropdown-menu a {
-  color: white;
-  padding: 6px 10px;
-  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 13px;
 }
 
 .dropdown-menu a:hover {
   background: #222;
-  border-radius: 4px;
 }
 
+.dropdown.open .dropdown-menu {
+  display: flex;
+}
+
+/* HERO / CARDS */
+
+.hero {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: #1c7a36;
+}
+
+.hero p {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #444;
+}
+
+.hero-buttons {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.button-green {
+  display: inline-block;
+  background: #28a745;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-green:hover {
+  filter: brightness(0.9);
+}
+
+/* FORMULÁRIO DA AGENDA DENTRO DO HERO */
+
+.agenda-form {
+  margin-top: 24px;
+  text-align: left;
+}
+
+.agenda-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.agenda-row label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.agenda-row input,
+.agenda-row select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    padding: 0 16px;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #000;
+    flex-direction: column;
+    padding: 12px 16px;
+    gap: 8px;
+    display: none;
+  }
+
+  .navbar-menu.is-open {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .dropdown-menu a {
+    padding: 6px 4px 6px 16px;
+  }
+
+  .hero {
+    margin: 24px 12px;
+    padding: 24px 16px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .button-green {
+    width: 100%;
+    text-align: center;
+  }
+}
