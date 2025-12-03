@@ -25,7 +25,7 @@ export default function Especialidades() {
     setShowEspecialidades(true);
   };
 
-  const handleSelectEspecialidade = (nome) => {
+  const handleSelectEspecialidade = (nome: string) => {
     setSelectedEspecialidade(nome);
     setShowEspecialidades(false);
   };
