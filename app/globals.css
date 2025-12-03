@@ -11,26 +11,24 @@ body {
   color: #333;
 }
 
-/* ============================
-   NAVBAR
-============================ */
-
 .navbar {
   width: 100%;
-  background: #000;
-  padding: 12px 0;
+  background-color: #000;
+  padding: 12px 20px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .navbar-list {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 25px;
   list-style: none;
 }
-
 /* Logo */
 .navbar-logo img {
   border-radius: 6px;
@@ -250,3 +248,47 @@ body {
 .dropdown-menu.show {
   display: flex;
 }
+
+/* 🔥 Corrige alinhamento dos dropdowns */
+.navbar .dropdown {
+  position: relative;
+}
+
+/* 🔥 Estilo do botão do dropdown */
+.dropdown-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 🔥 Estilo do menu aberto */
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 45px; /* ajusta a distância do menu */
+  left: 0;
+  background: #000;
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 999;
+  min-width: 150px;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu a {
+  color: white;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: #222;
+  border-radius: 4px;
+}
+
