@@ -50,9 +50,9 @@ export default function Navbar() {
               Especialidades
             </button>
             <div className="dropdown-menu">
-              <Link href="/especialidades">listar</Link>
-              <Link href="/especialidades/pediatria">Pediatria</Link>
-              <Link href="/especialidades/dermatologia">Dermatologia</Link>
+              <Link href="/">listar</Link>
+              <Link href="/">Pediatria</Link>
+              <Link href="/">Dermatologia</Link>
             </div>
           </div>
 
